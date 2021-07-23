@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\SizeController;
 use App\Models\Category;
@@ -58,4 +59,14 @@ Route::group(['middleware' => 'admin_auth'], function () {
     Route::delete('admin/size/delete/{size}', [SizeController::class, 'destroy'])->name('admin.size.delete');
 
     Route::get('admin/size/status/{status}/{size}', [SizeController::class, 'status']);
+
+    //admin Color
+    Route::get('admin/color', [ColorController::class, 'index'])->name('admin.color.index');
+    Route::get('admin/color/create', [ColorController::class, 'create'])->name('admin.color.create');
+    Route::post('admin/color/store', [ColorController::class, 'store'])->name('admin.color.store');
+    Route::get('admin/color/edit/{color}', [ColorController::class, 'edit'])->name('admin.color.edit');
+    Route::put('admin/color/update/{color}', [ColorController::class, 'update'])->name('admin.color.update');
+    Route::delete('admin/color/delete/{color}', [ColorController::class, 'destroy'])->name('admin.color.delete');
+
+    Route::get('admin/color/status/{status}/{color}', [ColorController::class, 'status']);
 });
