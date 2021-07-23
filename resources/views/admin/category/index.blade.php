@@ -50,7 +50,7 @@
                                             </a>
                                         </div>
                                 
-                                        {{-- <div class="col-md-3">
+                                        <div class="col-md-3">
                                             @if ($category->status == 1)
                                             <a href="{{ url('admin/category/status/0') }}/{{ $category->id }} "
                                                 class="btn btn-success ">Active</a>
@@ -58,7 +58,7 @@
                                             <a href="{{ url('admin/category/status/1') }}/{{ $category->id }}"
                                                 class="btn btn-warning ">Dactive</a>
                                             @endif
-                                        </div> --}}
+                                        </div>
 
                                 
                                         <div class="col-md-3">

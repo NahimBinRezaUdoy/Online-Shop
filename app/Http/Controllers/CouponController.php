@@ -47,6 +47,7 @@ class CouponController extends Controller
         $coupon->title = $request->title;
         $coupon->code = $request->code;
         $coupon->value = $request->value;
+        $coupon->status = 1;
         $coupon->save();
 
         $request->session()->flash('message', 'Coupon Added Successfully');
@@ -110,6 +111,15 @@ class CouponController extends Controller
         $coupon->delete();
 
         request()->session()->flash('message', 'Coupon Deleted Successfully');
+        return redirect()->route('admin.coupon.index');
+    }
+
+    public function status($status, Coupon $coupon, Request $request)
+    {
+        $coupon->status = $status;
+        $coupon->save();
+
+        $request->session()->flash('message', 'Status Updated Successfully');
         return redirect()->route('admin.coupon.index');
     }
 }

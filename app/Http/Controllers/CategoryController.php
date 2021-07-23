@@ -108,4 +108,13 @@ class CategoryController extends Controller
         request()->session()->flash('message', 'Category Successfully Deleted');
         return redirect()->route('admin.category.index');
     }
+
+    public function status($status, Category $category, Request $request)
+    {
+        $category->status = $status;
+        $category->save();
+
+        $request->session()->flash('message', 'Status Updated Successfully');
+        return redirect()->route('admin.category.index');
+    }
 }

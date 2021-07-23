@@ -52,7 +52,7 @@
                                             </a>
                                         </div>
                                 
-                                        {{-- <div class="col-md-3">
+                                        <div class="col-md-3">
                                             @if ($coupon->status == 1)
                                             <a href="{{ url('admin/coupon/status/0') }}/{{ $coupon->id }} "
                                                 class="btn btn-success ">Active</a>
@@ -60,8 +60,7 @@
                                             <a href="{{ url('admin/coupon/status/1') }}/{{ $coupon->id }}"
                                                 class="btn btn-warning ">Dactive</a>
                                             @endif
-                                        </div> --}}
-
+                                        </div>
                                 
                                         <div class="col-md-3">
                                             <form action="{{ route('admin.coupon.delete', $coupon) }}" method="post">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -35,6 +36,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
     Route::put('admin/category/update/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('admin/category/delete/{category}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
 
+    Route::get('admin/category/status/{status}/{category}', [CategoryController::class, 'status']);
+
     //admin coupon
     Route::get('admin/coupon', [CouponController::class, 'index'])->name('admin.coupon.index');
     Route::get('admin/coupon/create', [CouponController::class, 'create'])->name('admin.coupon.create');
@@ -42,4 +45,6 @@ Route::group(['middleware' => 'admin_auth'], function () {
     Route::get('admin/coupon/edit/{coupon}', [CouponController::class, 'edit'])->name('admin.coupon.edit');
     Route::put('admin/coupon/update/{coupon}', [CouponController::class, 'update'])->name('admin.coupon.update');
     Route::delete('admin/coupon/delete/{coupon}', [CouponController::class, 'destroy'])->name('admin.coupon.delete');
+
+    Route::get('admin/coupon/status/{status}/{coupon}', [CouponController::class, 'status']);
 });
