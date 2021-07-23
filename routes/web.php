@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\SizeController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -47,4 +48,14 @@ Route::group(['middleware' => 'admin_auth'], function () {
     Route::delete('admin/coupon/delete/{coupon}', [CouponController::class, 'destroy'])->name('admin.coupon.delete');
 
     Route::get('admin/coupon/status/{status}/{coupon}', [CouponController::class, 'status']);
+
+    //admin Size
+    Route::get('admin/size', [SizeController::class, 'index'])->name('admin.size.index');
+    Route::get('admin/size/create', [SizeController::class, 'create'])->name('admin.size.create');
+    Route::post('admin/size/store', [SizeController::class, 'store'])->name('admin.size.store');
+    Route::get('admin/size/edit/{size}', [SizeController::class, 'edit'])->name('admin.size.edit');
+    Route::put('admin/size/update/{size}', [SizeController::class, 'update'])->name('admin.size.update');
+    Route::delete('admin/size/delete/{size}', [SizeController::class, 'destroy'])->name('admin.size.delete');
+
+    Route::get('admin/size/status/{status}/{size}', [SizeController::class, 'status']);
 });
