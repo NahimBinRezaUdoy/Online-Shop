@@ -38,7 +38,7 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'size' => 'required',
+            'size' => 'required|unique:sizes,size',
         ]);
 
         $size = new Size();
@@ -83,7 +83,7 @@ class SizeController extends Controller
     public function update(Request $request, Size $size)
     {
         $request->validate([
-            'size' => 'required',
+            'size' => 'required|unique:colors,color',
         ]);
 
         $size->update([

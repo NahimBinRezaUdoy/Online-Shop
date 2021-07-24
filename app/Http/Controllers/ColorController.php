@@ -37,7 +37,7 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'color' => 'required',
+            'color' => 'required|unique:colors,color',
         ]);
 
         $color = new Color();
@@ -81,7 +81,7 @@ class ColorController extends Controller
     public function update(Request $request, Color $color)
     {
         $request->validate([
-            'color' => 'required',
+            'color' => 'required|unique:colors,color',
         ]);
 
         $color->update([

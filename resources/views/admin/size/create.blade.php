@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <label for="size" class="control-label mb-1">Size</label>
                                     <input id="size" name="size" value="{{ old('size') }}" type="text"
-                                        class="form-control" aria-required="true" aria-invalid="false" required>
+                                        class="form-control" aria-required="true" aria-invalid="false">
 
                                     @error('size')
                                         <div class="alert alert-danger">
